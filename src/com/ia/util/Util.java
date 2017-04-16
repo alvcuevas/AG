@@ -31,6 +31,7 @@ public class Util {
 		leeTarget();
 		generaPoblacion();
 		evaluaFitness();
+		codificaIndividuos();
     }
 	
 	// Lee la frase inicial por consola y lo almacena en un array
@@ -122,9 +123,15 @@ public class Util {
 	}
 	
 	
-	// Codifica los individuos para obtener sus cromosomas equivalentes
+	// Codifica los individuos de la poblacion para obtener sus cromosomas equivalentes
 	public static void codificaIndividuos(){
-		
+
+		System.out.printf("\n(*)Cromosomas de cada individuo: ");
+		for(int i=0; i<poblacion.size(); i++){
+			int y = (int)poblacion.get(i);
+			System.out.printf(Integer.toBinaryString(y)+", ");
+		}
+			
 	}
 	
 	
@@ -137,7 +144,7 @@ public class Util {
 		for(int i=0; i<letrasFrase.length; i++){
 			for(int j=0; j<poblacion.size(); j++){
 				if(letrasFrase[i] == poblacion.get(j).charValue()){
-					coincidencias.add(letrasFrase[i]);
+					coincidencias.add(poblacion.get(j).charValue());
 				}
 			}
 		}
@@ -148,7 +155,6 @@ public class Util {
 		for(int i=0; i<coincidencias.size(); i++)
 			System.out.printf(coincidencias.get(i).toString() + ", ");
 
-		
 		
 	}
 	
