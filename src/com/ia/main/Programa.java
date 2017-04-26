@@ -18,12 +18,12 @@ public class Programa {
 		parametros = Util.obtenerParametros(null);
 		target = Util.leeTarget();
 		poblacion = Util.generaPoblacion(target.length(), target);
+		
 		for(int i=0; i<200; i++){
-			solucionActual = Util.evaluaFitness(poblacion, target);
-			if(solucionActual.equals(target)) break;
-			System.out.println(i);
+			solucionActual = Util.calculaCoincidencias(poblacion, target);
+			if(solucionActual!=null && solucionActual.equals(target)) break;
+			System.out.println("(*)Num de iteración: "+i);
 		}
-//		Util.codificaIndividuos(target);ANIMULA VAGULA BLANDULA
 	}
 
 }
