@@ -11,9 +11,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.ia.model.Parametros;
 
@@ -31,10 +33,8 @@ public class Util {
         if(scanner.hasNextLine())
         	target = scanner.nextLine().toString();
         
-        System.out.println("(*)Sentencia target: " + target.toString() + " (longitud " + target.length() + ")");
+//        System.out.println("(*)Sentencia target: " + target.toString() + " (longitud " + target.length() + ")");
 
-        for(int i=0; i<target.length(); i++)
-        
         scanner.close();	
         
         return target;
@@ -104,10 +104,8 @@ public class Util {
 			}
 		}
 		
-		System.out.printf("(*)Poblacion aleatoria inicial: \n");
-		for(int i=0; i<poblacion.size(); i++)
-			System.out.printf(poblacion.get(i).toString()+", \n");	
-	    
+//		System.out.printf("(*)Poblacion aleatoria inicial: \n");
+//		System.out.println(poblacion);
 		return poblacion;
 	}
 	
@@ -122,14 +120,19 @@ public class Util {
 		return c;
 	}
 	
+	public static double _obtenerRandomMax(double max){
+		double c = ThreadLocalRandom.current().nextDouble(0, max);
+		return c;
+	}
+	
 	// Cálculo del número total de coincidencias entre los individuos y el target introducido
-	public static String calculaCoincidencias(List<String> poblacion, String target){
+	public static List<Integer> calculaCoincidencias(List<String> poblacion, String target){
 		
-		List<Integer> numCoincidencias = new ArrayList<Integer>();
+		List<Integer> numCoincidencias = Arrays.asList(new Integer[poblacion.size()]);
 		Integer numeroMaximo = 0;
 		
 		for(int i=0; i<poblacion.size(); i++){
-			numCoincidencias.add(new Integer(0));
+			numCoincidencias.set(i, new Integer(0));
 			for(int j=0; j<target.length(); j++){
 			
 				if(poblacion.get(i).charAt(j) == target.charAt(j)){
@@ -140,68 +143,100 @@ public class Util {
 				numeroMaximo = numCoincidencias.get(i);
 		}
 		
-		System.out.println("(*)Num coincidencias/individuo: " + numCoincidencias);
-		return calculaFitness(poblacion, target, numeroMaximo, numCoincidencias);
+//		System.out.println("(*)Num coincidencias/individuo: " + numCoincidencias);
+		return numCoincidencias;
 		
 	}
 	
 	// Cálculo del fitness de los individuos
-	public static String calculaFitness(List<String> poblacion, String target, Integer numeroMaximo, List<Integer> numCoincidencias){
+	public static List<Double> calculaFitness(List<String> poblacion, String target, List<Integer> numCoincidencias, 
+			Parametros parametros){
 		
 		List<Double> listaFitness = new ArrayList<Double>();
-		List<Double> fitnessNormalizado = new ArrayList<Double>();
+		
 		Double maximoFitness = new Double(0);
-		Integer indiceMejorFitness = 0;
 		
 		// Cálculo del fitness de cada individuo
 		for(int i=0; i<poblacion.size(); i++){
-			listaFitness.add(Math.pow(Math.E, (numCoincidencias.get(i)-target.length()))
+			listaFitness.add(Math.pow(Math.E, numCoincidencias.get(i)-target.length())
 					- Math.pow(Math.E, (-target.length())));
 		}
 		
-		System.out.println("(*)Valores Fi/individuo: " + listaFitness);
+//		System.out.println("(*)Valores Fi/individuo: " + listaFitness);
 		
-		// Cálculo del fitness normalizado de cada individuo
-		for(int i=0; i<poblacion.size(); i++){
-			fitnessNormalizado.add(listaFitness.get(i) / 
-					(Math.pow(Math.E, numeroMaximo-target.length() - Math.pow(Math.E, -target.length()))));
-		}
-		
-		System.out.println("(*)Valores Fi Normalizados: " + fitnessNormalizado);
-		
-		// Cálculo del mejor fitness del conjunto de soluciones
-		for(int i=0; i<poblacion.size(); i++){
-			if(maximoFitness==new Double(0) || maximoFitness<fitnessNormalizado.get(i)){
-				maximoFitness = fitnessNormalizado.get(i);
-				indiceMejorFitness = i;
-			}
-		}
-		
-		System.out.println("(*)Individuo con mejor Fi: " + indiceMejorFitness);
-		return mutaIndividuo(poblacion, indiceMejorFitness, target);
+		return listaFitness;
 		
 	}
+
+	public static List<String> calculaFitnessNormalizado(List<String> poblacion, String target, List<Integer> numCoincidencias,
+			List<Double> listaFitness, Parametros parametros) {
+		
+		List<Double> fitnessNormalizado = Arrays.asList(new Double[poblacion.size()]);
+		
+		Integer indice = _obtenerRandomMax(poblacion.size());
+		Integer nuevoIndice = _obtenerRandomMax(poblacion.size());
+		Integer primerIndice = indice;
+		
+		Integer maxCoincidencias = 0;
+		
+		for(int i=0; i<numCoincidencias.size();i++) 
+			if(maxCoincidencias<numCoincidencias.get(i)) 
+				maxCoincidencias = numCoincidencias.get(i);
+		
+		Boolean primera = true;
+		
+		do{
+			if(!primera){
+				indice = _actualizaIndice(indice, poblacion.size());
+			}
+			primera=false;
+
+			fitnessNormalizado.set(indice, listaFitness.get(indice) / 
+					(Math.pow(Math.E, (maxCoincidencias-target.length()))) - Math.pow(Math.E, (-target.length()))) ;
+		
+			double randomMonteCarlo = _obtenerRandomMax(1.0);
+
+//			System.out.println("(*)Valor Fi: " + listaFitness.get(indice));
+//			System.out.println("(*)Valor Fi Normalizado: " + fitnessNormalizado.get(indice));
+//			System.out.println("(*)Valor random Monte Carlo: " + randomMonteCarlo);
+			
+			if(randomMonteCarlo<fitnessNormalizado.get(indice)){
+				poblacion.set(nuevoIndice, mutaIndividuo(poblacion.get(indice), indice, parametros));
+				numCoincidencias = Util.calculaCoincidencias(poblacion, target);
+				listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
+			}
+			
+		}while(indice!=primerIndice);
+		
+		return poblacion;
+	}
+	
+	private static Integer _actualizaIndice(Integer indice, Integer max){
+		if(indice+1<max) return indice+1;
+		else return 0;
+	}
+	
 	
 	// Proceso de mutacion sobre individuo seleccionado
-	public static String mutaIndividuo(List<String> poblacion, Integer indiceMejorFitness, String target){
+	public static String mutaIndividuo(String individuo, Integer indice, Parametros parametros){
 		
-		String mejorIndividuo = poblacion.get(indiceMejorFitness);
+//		System.out.println("(*)Antes de mutar: " + individuo);
+		
 		String nuevoIndividuo = new String();
 		
-		for(int i=0; i<target.length(); i++){
-			if(target.charAt(i)!=mejorIndividuo.charAt(i)){
+		for(int i=0; i<individuo.length(); i++){
+			
+			double randomMonteCarlo = _obtenerRandomMax(1.0);
+			
+			if(randomMonteCarlo<parametros.getProbMutacion()){
+				nuevoIndividuo += individuo.charAt(i);
+			} else {
 				int c = _obtenerRandom();
 				nuevoIndividuo += (char) c;
-			} else {
-				nuevoIndividuo += mejorIndividuo.charAt(i);
 			}
 		}
 		
-		System.out.println("(*)Nueva solución tras la mutación: " + nuevoIndividuo);
-		
-		int nuevaPosicion = _obtenerRandomMax(target.length());
-		
-		poblacion.set(nuevaPosicion, nuevoIndividuo);
+//		System.out.println("(*)Nueva solución tras la mutación: " + nuevoIndividuo);
 		
 		return nuevoIndividuo;
 		
