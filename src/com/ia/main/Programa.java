@@ -25,19 +25,34 @@ public class Programa {
 		parametros = Util.obtenerParametros(null);
 		target = Util.leeTarget();
 		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target);
-		int i = 0;
 		
 		long start = System.currentTimeMillis();    
 		
-		while(!hasEqual()){
-			numCoincidencias = Util.calculaCoincidencias(poblacion, target);
-			listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
-			poblacion = Util.calculaFitnessNormalizado(poblacion, target, numCoincidencias, listaFitness, parametros);
-//			System.out.println(i + " -- " + poblacion);
-		}
+		_programaConGeneraciones();
+//		_programaSinGeneraciones();
+
 		long elapsedTime = System.currentTimeMillis() - start;
 		System.out.println(poblacion);
 		System.out.println(elapsedTime);
+	}
+	
+	private static void _programaConGeneraciones(){
+		for(int i=0; i<parametros.getNumMaxGeneraciones(); i++){
+			numCoincidencias = Util.calculaCoincidencias(poblacion, target);
+			listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
+			poblacion = Util.calculaFitnessNormalizado(poblacion, target, numCoincidencias, listaFitness, parametros);
+		}
+	}
+	
+	public static void _programaSinGeneraciones() {
+		int i = 0;
+		while(!hasEqual()){
+			i++;
+			numCoincidencias = Util.calculaCoincidencias(poblacion, target);
+			listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
+			poblacion = Util.calculaFitnessNormalizado(poblacion, target, numCoincidencias, listaFitness, parametros);
+		}
+		System.out.println("Generaciones para generar: " + i);
 	}
 	
 	static boolean hasEqual(){
