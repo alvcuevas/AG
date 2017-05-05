@@ -2,64 +2,79 @@ package com.ia.main;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import com.ia.model.Parametros;
 import com.ia.util.Util;
+import com.ia.util.UtilAlgoritmos;
 
 public class Programa {
 	
-	static Parametros parametros ;
+	/**
+	 * Definición de variables. 
+	 */
+	private static Parametros parametros;
+	private static List<String> poblacion;
+	private static List<Integer> numCoincidencias;
+	private static List<Double> listaFitness;
+	private static String target;
+	/**
+	 * FIN definición de variables. 
+	 */
 	
-	static List<String> poblacion = new ArrayList<String>();
-	static List<Integer> numCoincidencias = new ArrayList<Integer>();
-	
-	static List<Double> listaFitness = new ArrayList<Double>();
-	static List<Double> fitnessNormalizado = new ArrayList<Double>();
-	
-	static String target ;
-	static String solucionActual;
 	
 	// Para ir probando el programa
 	public static void main(String[] args) {
+
+		/*
+		 * Inicializar variables.
+		 */
+		poblacion = new ArrayList<String>();
+		numCoincidencias = new ArrayList<Integer>();
+		listaFitness = new ArrayList<Double>();
 		parametros = Util.obtenerParametros(null);
 		target = Util.leeTarget();
 		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target);
 		
+		/*
+		 *  Para contar el tiempo que tarda en correr el algoritmo
+		 */
 		long start = System.currentTimeMillis();    
 		
 		_programaConGeneraciones();
 //		_programaSinGeneraciones();
 
+		/*
+		 * Contar el tiempo e imprimir este y la población en la última generación. 
+		 */
 		long elapsedTime = System.currentTimeMillis() - start;
 		System.out.println(poblacion);
 		System.out.println(elapsedTime);
 	}
 	
+	/**
+	 * Éste método utiliza el ngen del configuracion.cfg. 
+	 */
 	private static void _programaConGeneraciones(){
 		for(int i=0; i<parametros.getNumMaxGeneraciones(); i++){
-			numCoincidencias = Util.calculaCoincidencias(poblacion, target);
-			listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
-			poblacion = Util.calculaFitnessNormalizado(poblacion, target, numCoincidencias, listaFitness, parametros);
+			UtilAlgoritmos.algoritmoGenetico(target, poblacion, numCoincidencias,
+					parametros, listaFitness);
 		}
 	}
 	
+	/**
+	 * Éste método no utiliza el ngen del configuracion.cfg.
+	 * 
+	 * En lugar de esto, sigue mutando a la población hasta encontrar un cromosoma que sea
+	 * igual que target.
+	 *  
+	 */
 	public static void _programaSinGeneraciones() {
 		int i = 0;
-		while(!hasEqual()){
+		while(!Util.hasEqual(numCoincidencias, target)){
 			i++;
-			numCoincidencias = Util.calculaCoincidencias(poblacion, target);
-			listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
-			poblacion = Util.calculaFitnessNormalizado(poblacion, target, numCoincidencias, listaFitness, parametros);
+			UtilAlgoritmos.algoritmoGenetico(target, poblacion, numCoincidencias, 
+					parametros, listaFitness);
 		}
 		System.out.println("Generaciones para generar: " + i);
-	}
-	
-	static boolean hasEqual(){
-		for(Integer numCoin : numCoincidencias){
-			if(numCoin==target.length())
-				return true;
-		}
-		return false;
 	}
 }

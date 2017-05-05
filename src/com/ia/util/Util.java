@@ -19,11 +19,21 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import com.ia.model.Parametros;
 
+/**
+ * En esta clase están únicamente los métodos de apoyo, como generar letras o números
+ * random, cargar la configuración, leer o escribir ficheros de texto, etc...
+ */
 public class Util {
 	
+	/**
+	 * Un generador de randoms para usar desde varios métodos.
+	 */
 	static Random r = new Random();
 	
-	// Lee la frase inicial por consola y lo almacena en un array
+	/**
+	 * Lee la frase inicial por consola y lo almacena en un array
+	 * @return la frase "target"
+	 */
 	public static String leeTarget(){
 		
 		String target = new String();
@@ -40,7 +50,13 @@ public class Util {
         return target;
 	}
 	
-	// Lectura del archivo desde una ruta especifica
+	/**
+	 * Lectura del archivo desde una ruta especifica
+	 * 
+	 * @param ruta: la ruta en la que está el archivo a leer.
+	 * 
+	 * @return el contenido del archivo en un String.
+	 */
 	public static String leerArchivo(String ruta){
 		
 		try {
@@ -52,7 +68,14 @@ public class Util {
 		return null;
 	}
 	
-	// Obtencion de los parametros del archivo configuracion para almacenarlos en la clase Parametros
+	/**
+	 * Obtencion de los parametros del archivo configuracion para almacenarlos en la clase Parametros.
+	 * 
+	 * @param ruta: si se quiere, se le puede pasar una ruta a un archivo de configuración alternativo. Si
+	 * se pasa "ruta" en null, se utilizará el archivo de configuración por defecto.
+	 * 
+	 * @return el objeto Parametros cargado.
+	 */
 	public static Parametros obtenerParametros(String ruta){
 		
 		Parametros parametros = new Parametros();
@@ -89,7 +112,16 @@ public class Util {
 		return parametros;
 	}
 	
-	// Genera poblacion de individuos aleatorios y los almacena
+	/**
+	 * Genera poblacion de individuos aleatorios y los almacena
+	 * 
+	 * @param numIndividuos: el numero de individuos que se quiere generar. Esto se corresponde con
+	 * 		  el parámetro npob del configuracion.cfg.
+	 * @param target: la frase target que se quiere generar.
+	 * 
+	 * @return una lista de frases con "numIndividuos" elementos del mismo largo que la frase target.
+	 *  
+	 */
 	public static List<String> generaPoblacion(int numIndividuos, String target){
 		
 		List<String> poblacion = new ArrayList<String>();
@@ -99,7 +131,7 @@ public class Util {
 			poblacion.add(new String());
 			
 			for(int j=0; j<target.length(); j++){
-				int c = _obtenerRandom();
+				int c = obtenerCharRandom();
 				poblacion.set(i, poblacion.get(i) + (char)c);
 			}
 		}
@@ -109,23 +141,57 @@ public class Util {
 		return poblacion;
 	}
 	
-	public static int _obtenerRandom(){
+	/**
+	 * Genera un caracter random dentro del rango de varavteres válidos.
+	 * 
+	 * @return un caracter random dentro del rango de caracteres válidos.
+	 */
+	public static char obtenerCharRandom(){
+
+		/*
+		 * El rango de generación incluye todas las letras desde la A, mas una que corresponde al espacio.
+		 */
 		int c = r.nextInt(27) + (byte)'a';
+		
+		/*
+		 * Si el random obtenido esta fuera del rango de letras, devolvemos el caracter espacio (" ") que
+		 * corresponde con el int con valor 32.
+		 */
 		if(c==(byte)'a'+26) c = 32;
-		return c;
+		
+		return (char) c;
 	}
 	
-	public static int _obtenerRandomMax(int max){
+	/**
+	 * Devuelve un numero random entre 0 (incluído) y max (no incluído).
+	 * 
+	 * @param max: el primer número que NO está incluído en el rango que se quiere.
+	 * 
+	 * @return el numero random generado.
+	 */
+	public static int obtenerRandomMax(int max){
 		int c = r.nextInt(max);
 		return c;
 	}
 	
-	public static double _obtenerRandomMax(double max){
-		double c = ThreadLocalRandom.current().nextDouble(0, max);
+	/**
+	 * Devuelve un double random entre 0 y 1.
+	 *  
+	 * @return un double random entre 0 y 1.
+	 */
+	public static double obtenerRandomDouble(){
+		double c = ThreadLocalRandom.current().nextDouble(0, 1);
 		return c;
 	}
 	
-	// Cálculo del número total de coincidencias entre los individuos y el target introducido
+	/**
+	 * Cálculo del número total de coincidencias entre los individuos y el target introducido
+	 * 
+	 * @param poblacion: la población de individuos que se quiere comprobar.
+	 * @param target: la frase target.
+	 * 
+	 * @return una lista con 
+	 */
 	public static List<Integer> calculaCoincidencias(List<String> poblacion, String target){
 		
 		List<Integer> numCoincidencias = Arrays.asList(new Integer[poblacion.size()]);
@@ -148,97 +214,31 @@ public class Util {
 		
 	}
 	
-	// Cálculo del fitness de los individuos
-	public static List<Double> calculaFitness(List<String> poblacion, String target, List<Integer> numCoincidencias, 
-			Parametros parametros){
-		
-		List<Double> listaFitness = new ArrayList<Double>();
-		
-		Double maximoFitness = new Double(0);
-		
-		// Cálculo del fitness de cada individuo
-		for(int i=0; i<poblacion.size(); i++){
-			listaFitness.add(Math.pow(Math.E, numCoincidencias.get(i)-target.length())
-					- Math.pow(Math.E, (-target.length())));
-		}
-		
-//		System.out.println("(*)Valores Fi/individuo: " + listaFitness);
-		
-		return listaFitness;
-		
-	}
-
-	public static List<String> calculaFitnessNormalizado(List<String> poblacion, String target, List<Integer> numCoincidencias,
-			List<Double> listaFitness, Parametros parametros) {
-		
-		List<Double> fitnessNormalizado = Arrays.asList(new Double[poblacion.size()]);
-		
-		Integer indice = _obtenerRandomMax(poblacion.size());
-		Integer nuevoIndice = _obtenerRandomMax(poblacion.size());
-		Integer primerIndice = indice;
-		
-		Integer maxCoincidencias = 0;
-		
-		for(int i=0; i<numCoincidencias.size();i++) 
-			if(maxCoincidencias<numCoincidencias.get(i)) 
-				maxCoincidencias = numCoincidencias.get(i);
-		
-		Boolean primera = true;
-		
-		do{
-			if(!primera){
-				indice = _actualizaIndice(indice, poblacion.size());
-			}
-			primera=false;
-
-			fitnessNormalizado.set(indice, listaFitness.get(indice) / 
-					(Math.pow(Math.E, (maxCoincidencias-target.length()))) - Math.pow(Math.E, (-target.length()))) ;
-		
-			double randomMonteCarlo = _obtenerRandomMax(1.0);
-
-//			System.out.println("(*)Valor Fi: " + listaFitness.get(indice));
-//			System.out.println("(*)Valor Fi Normalizado: " + fitnessNormalizado.get(indice));
-//			System.out.println("(*)Valor random Monte Carlo: " + randomMonteCarlo);
-			
-			if(randomMonteCarlo<fitnessNormalizado.get(indice)){
-				poblacion.set(nuevoIndice, mutaIndividuo(poblacion.get(indice), indice, parametros));
-				numCoincidencias = Util.calculaCoincidencias(poblacion, target);
-				listaFitness = Util.calculaFitness(poblacion, target, numCoincidencias, parametros);
-			}
-			
-		}while(indice!=primerIndice);
-		
-		return poblacion;
-	}
-	
-	private static Integer _actualizaIndice(Integer indice, Integer max){
+	/**
+	 * Si indice+1 es el máximo, se devuelve 0. Si no, se devuelve indice+1.
+	 *  
+	 * @param indice: el índice actual.
+	 * @param max: el máximo (al que no se puede llegar).
+	 * 
+	 * @return el nuevo índice.
+	 */
+	public static Integer actualizaIndice(Integer indice, Integer max){
 		if(indice+1<max) return indice+1;
 		else return 0;
 	}
 	
-	
-	// Proceso de mutacion sobre individuo seleccionado
-	public static String mutaIndividuo(String individuo, Integer indice, Parametros parametros){
-		
-//		System.out.println("(*)Antes de mutar: " + individuo);
-		
-		String nuevoIndividuo = new String();
-		
-		for(int i=0; i<individuo.length(); i++){
-			
-			double randomMonteCarlo = _obtenerRandomMax(1.0);
-			
-			if(randomMonteCarlo<parametros.getProbMutacion()){
-				nuevoIndividuo += individuo.charAt(i);
-			} else {
-				int c = _obtenerRandom();
-				nuevoIndividuo += (char) c;
-			}
+	/** 
+	 * Este método comprueba si existe un cromosoma igual que el target en la población.
+	 * 
+	 * En lugar de comparar strings, compara el largo del target con los numeros de coincidencias
+	 * guardados en una lista de integers.
+	 * 
+	 */
+	public static boolean hasEqual(List<Integer> numCoincidencias, String target){
+		for(Integer numCoin : numCoincidencias){
+			if(numCoin==target.length())
+				return true;
 		}
-		
-//		System.out.println("(*)Nueva solución tras la mutación: " + nuevoIndividuo);
-		
-		return nuevoIndividuo;
-		
+		return false;
 	}
 }
