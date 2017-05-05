@@ -10,26 +10,6 @@ import com.ia.model.Parametros;
  * En esta clase están los métodos relacionados únicamente con el algoritmo genético.
  */
 public class UtilAlgoritmos {
-
-	/**
-	 * Una generación del algoritmo genético. Se comprueba toda la población, y se muta a los
-	 * cromosomas que correspondan dependiendo de su fitness normalizado.
-	 * 
-	 * @param target: la frase target que se quiere alcanzar.
-	 * @param poblacion: la población de individuos actual.
-	 * @param numCoincidencias: una lista con el numero de coincidencias de cada cromosoma de la población 
-	 * 		  con respecto al target.
-	 * @param parametros: el objeto Parametros cargado desde configuracion.cfg.
-	 * @param listaFitness: una lista con el fitness de cada individuo de la población.
-	 *  
-	 */
-	public static void algoritmoGenetico(String target, List<String> poblacion, 
-			List<Integer> numCoincidencias, Parametros parametros, List<Double> listaFitness){
-		
-		numCoincidencias = Util.calculaCoincidencias(poblacion, target);
-		listaFitness = UtilAlgoritmos.calculaFitness(poblacion, target, numCoincidencias, parametros);
-		poblacion = UtilAlgoritmos.mutaPoblacion(poblacion, target, numCoincidencias, listaFitness, parametros);
-	}
 	
 	/**
 	 * Cálculo del fitness de los individuos

@@ -1,0 +1,314 @@
+Configuración:
+
+npob=1000
+ngen=500000
+nres=10000
+q=0.95
+
+
+Resúmen:
+
+
+Introduce la frase: animula vagula blandula
+Generacion: 0
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 3.85%
+
+
+Generacion: 10000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 10.41%
+
+
+Generacion: 20000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 15.89%
+
+
+Generacion: 30000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 26.87%
+
+
+Generacion: 40000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 40.48%
+
+
+Generacion: 50000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 45.57%
+
+
+Generacion: 60000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 54.24%
+
+
+Generacion: 70000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 59.53%
+
+
+Generacion: 80000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 60.48%
+
+
+Generacion: 90000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 61.57%
+
+
+Generacion: 100000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 64.50%
+
+
+Generacion: 110000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 67.74%
+
+
+Generacion: 120000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 71.52%
+
+
+Generacion: 130000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 74.70%
+
+
+Generacion: 140000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 76.39%
+
+
+Generacion: 150000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 78.68%
+
+
+Generacion: 160000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 81.80%
+
+
+Generacion: 170000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 83.43%
+
+
+Generacion: 180000
+Porcentaje de NTar: 0.00%
+Número de NTar: 0
+Porcentaje de acierto: 84.91%
+
+
+Generacion: 190000
+Porcentaje de NTar: 1.10%
+Número de NTar: 11
+Porcentaje de acierto: 86.18%
+
+
+Generacion: 200000
+Porcentaje de NTar: 9.30%
+Número de NTar: 93
+Porcentaje de acierto: 89.73%
+
+
+Generacion: 210000
+Porcentaje de NTar: 12.80%
+Número de NTar: 128
+Porcentaje de acierto: 91.77%
+
+
+Generacion: 220000
+Porcentaje de NTar: 12.30%
+Número de NTar: 123
+Porcentaje de acierto: 91.84%
+
+
+Generacion: 230000
+Porcentaje de NTar: 14.00%
+Número de NTar: 140
+Porcentaje de acierto: 91.96%
+
+
+Generacion: 240000
+Porcentaje de NTar: 13.70%
+Número de NTar: 137
+Porcentaje de acierto: 92.20%
+
+
+Generacion: 250000
+Porcentaje de NTar: 17.10%
+Número de NTar: 171
+Porcentaje de acierto: 92.53%
+
+
+Generacion: 260000
+Porcentaje de NTar: 12.70%
+Número de NTar: 127
+Porcentaje de acierto: 92.02%
+
+
+Generacion: 270000
+Porcentaje de NTar: 15.10%
+Número de NTar: 151
+Porcentaje de acierto: 92.05%
+
+
+Generacion: 280000
+Porcentaje de NTar: 15.40%
+Número de NTar: 154
+Porcentaje de acierto: 92.13%
+
+
+Generacion: 290000
+Porcentaje de NTar: 17.30%
+Número de NTar: 173
+Porcentaje de acierto: 92.50%
+
+
+Generacion: 300000
+Porcentaje de NTar: 16.90%
+Número de NTar: 169
+Porcentaje de acierto: 92.34%
+
+
+Generacion: 310000
+Porcentaje de NTar: 16.30%
+Número de NTar: 163
+Porcentaje de acierto: 92.50%
+
+
+Generacion: 320000
+Porcentaje de NTar: 15.80%
+Número de NTar: 158
+Porcentaje de acierto: 92.27%
+
+
+Generacion: 330000
+Porcentaje de NTar: 16.60%
+Número de NTar: 166
+Porcentaje de acierto: 92.40%
+
+
+Generacion: 340000
+Porcentaje de NTar: 18.20%
+Número de NTar: 182
+Porcentaje de acierto: 92.42%
+
+
+Generacion: 350000
+Porcentaje de NTar: 13.30%
+Número de NTar: 133
+Porcentaje de acierto: 92.35%
+
+
+Generacion: 360000
+Porcentaje de NTar: 14.30%
+Número de NTar: 143
+Porcentaje de acierto: 92.23%
+
+
+Generacion: 370000
+Porcentaje de NTar: 15.20%
+Número de NTar: 152
+Porcentaje de acierto: 92.39%
+
+
+Generacion: 380000
+Porcentaje de NTar: 18.00%
+Número de NTar: 180
+Porcentaje de acierto: 92.83%
+
+
+Generacion: 390000
+Porcentaje de NTar: 16.30%
+Número de NTar: 163
+Porcentaje de acierto: 92.55%
+
+
+Generacion: 400000
+Porcentaje de NTar: 15.30%
+Número de NTar: 153
+Porcentaje de acierto: 92.67%
+
+
+Generacion: 410000
+Porcentaje de NTar: 16.90%
+Número de NTar: 169
+Porcentaje de acierto: 92.67%
+
+
+Generacion: 420000
+Porcentaje de NTar: 16.00%
+Número de NTar: 160
+Porcentaje de acierto: 92.31%
+
+
+Generacion: 430000
+Porcentaje de NTar: 14.90%
+Número de NTar: 149
+Porcentaje de acierto: 92.34%
+
+
+Generacion: 440000
+Porcentaje de NTar: 16.20%
+Número de NTar: 162
+Porcentaje de acierto: 92.36%
+
+
+Generacion: 450000
+Porcentaje de NTar: 15.20%
+Número de NTar: 152
+Porcentaje de acierto: 92.20%
+
+
+Generacion: 460000
+Porcentaje de NTar: 16.80%
+Número de NTar: 168
+Porcentaje de acierto: 92.44%
+
+
+Generacion: 470000
+Porcentaje de NTar: 17.20%
+Número de NTar: 172
+Porcentaje de acierto: 92.22%
+
+
+Generacion: 480000
+Porcentaje de NTar: 17.50%
+Número de NTar: 175
+Porcentaje de acierto: 92.48%
+
+
+Generacion: 490000
+Porcentaje de NTar: 14.60%
+Número de NTar: 146
+Porcentaje de acierto: 92.35%
+
+
+[qnimula vjsula blandola, animula vagula blanwuga, animula vagula blandula, animula vagula blandulf, aniiula vagultiblandula, animula vagmla blandylt, animula yagula blandula, animuqa vagula blandula, animula vagula blandula, animula vagula blanduea, animula vaguga jlandula, animula vagula blandula, aniaula vagula blwndula, animula vagula blatdula, animula vadula blandula, animula vagula wlandula, animula vagula blandula, animulajvagula blandula, animula vaguxa blandula, animula vagula blandula, animula vagula blandula, animula dygula blandula, animula sagula blandula, animulaqvagila hlandula,  nmmula vagula blavduta, animula vagula blandula, animula vagula blandula, anfmulu vagula blandula, animula vagula pqandula, animuqa vagula blandula, ahimula vcguladblandula, animula vagulaeblandula, animula vaguna blazdula, animula vagula blandula, animula vaguea blandbla, anipula vagula blandula, animula vagulalblandula, animula oagula blanduli, anomula vagula blandula, animula vagula hldndula, animuda vagula blandula, animula vagula blanzula, jnimula lagula blandola, ynirula fagula blbndula, animula vagula blanbula, animula vagula blandula, anhmula vagula blandula, anipula vagula blandula, a iaula vag xa blanzula, animula vagula blandula, animula vagula blandula, animula vagfla blandula, animuya vagula blandula, animula vagula blandulk, gnimula vagula blandula, animula vagula blandula, ansmula vagula blanuula, animule vatula blandxla, animula vagula blqndula, animuln vanula blandula, animula vaguly blandula, animula vagula blandula, animula vagula  landula, animulasvapula blandula, anidula vagula blanddla, animula vagula blangsla, arqmula vagula blandula, animula vagwla blahdula, animulaqvagula blandula, animula vagula blandula, animuls vagulqgblandula, animulakvaguna blandula, anifula vagula blandula, animulahvagula blandula, azimuwa vagula blandula, animula vagsla blandula, animula vagula bbandula, anvmula vagula blandula, animula vagulaoblandula, animula vaguxa blandula, animhla vagula blandula, animuls vagulqgblandula, animula vagula blandula, anpmuna vagula blandula, animula vabulp blandula, animula vagula xlandula, animmla vagula blanduca, animulascagula blandula, anidula vagula blanddla, animula vagula blandula, anqmula vagulaablandula, azimula vagula blandula, animula vagula blandura, akimula vagulagbzandula, angmula ekgula blandula, animula vagula blandula, animhla vagula blandula, animula vagula blandula, animulk vagula blmndula, animula vagula blandula, ajimula vagula blaudula, animula vagula blajdulx, animula vagula blandula, enimrma vagula blandula, animula vag la blandula, animula vlsula blanduza, amipulykvagula blandala, animula vagulq blandula, anifula vagula blandula, animula vagula blandula, animula vagula blandula, animula vagule blandula, animgla vaguladblandula, gniqula sagula blandula, animula vaguga blandula, animula vaguka blxnddla, animula vagula blandula, animula vagula blandula, animula vagtla blaabula, animuba vagula blandula, animula vagulagblandula, animula vagyla vlandula, animula vagula blxndula, animrla vaguda blandula, animulajvwgulw blandula, animvla vagula blnndula, animuqa vagxla blbndula, an muja vagula blandula, animula vqgula blandula, animula vagula blandsaa, afimula vagula blandula, animuba vagula blandula, animuha vagula blandxla, animula vagula blandula, akimula vaguua blandula, animula vagula blandula, animuea vagula blandulk, animula vagula blandula, animuza vagula blandula, anizuna vagula blanduna, aawmula vagula blardula, aniyula vpgula blandqla, animuqr vagulz blanfula, animula vagula blandula, animujp vagula blandula, apimcla vagula blandula, animula vagulapblandula, animula vagula blandula, animulmtvagu a blandula, animulz vagolg blandula, animula vagula blaxdulm, animula vagula blandult, anwmula vagula blanduva, animula vagula blardula, animulq vagula qlandula, animula vagulauxlandula, animula vagula blandula, animula vaguga blindula, animuva vagula blnndula, animula vagula blandulf, animula vagula blandula, animulc vagula blandula, animula vagula blanduza, animulp vagula blandula, animulajvagula blandula, tnimula vagula blandula, animulamvagula blandula, animula vagulo blanyala, animula vagulatblandula, animulakvaguly blandula, aoimula vagula blandula, qqimula vagsla  landula, anifuna vagu a blandula, animusa vagula blandula, animula vagula blanduoa, animula vaeula blandula, animula vagulawblandula, animula vagula blandula, azimula vagula blandula, anioupa vyoula blandula, azimula vwgula blhndula, animula gaaula blandula, animula vwguly blandula, animula vaguta blandula, animulamvagula blandula, anidulahvaguuazblandula, animula vagula blanoula, amipuldevagula blandala, animulaxvawula blandula, afimule vagkla b awdula, animula lagula bkandula, animuaamvagula blandqla, animula vagulg blandula, afimula vagula blandula, animulx vagula blanxula, animulp vagula jlandula, animmva vagula blamdula, vnimula vaguna blandula, an mula vatula blmndul , anwmula vagula blandula, animula vaguea xlanduka, animula vagala blafdula, animuuaxvagula blandula, animula oagula blanduli, wnimula lasula blandula, animulafmagtla blandjla, dnimula vagula blandula, animgla vagulp blandula, animulafvag la btandula, animultkvagula elandula, animula vagularblandula, animula vagula blxndula, animula vagula blandula, animuha vagulawblandula, animula vagulkkblandula, ayimula vagula blandula, animwla vagula blandula, animula vagula blandula, aniyula cpgyla blandqla, animula vagula blandula, alpmbla vagula blandila, animulq vagulawblandula, animula vagula blandula, animula vaftla blandula, animula vagula blandula, animula vacula blandula, animuwa vagula blandula, animula vagula blanxula, auimula vaguua blandula, animula vagula blandula, anqmula vagula bmandula, animula ecgula blandula, animula vagula blaiduta, animula vatula blandul , animhla vagula blandula, animula vagula blandula, aximula vagula blandula, animulakvagula blanlyxa, animula vagula blandula, animula vagula bjandula, animula vagula blandula, animula vagula blandula, animuqa vagula blondula, animvla vogula blwndulk, animula vagulw blandula, animula vagulawblandula, animula vagula blandula, amimula vaqula blandula, anxmula vjgula blanduza, animula vagula blandula, animula vwguly bljndula, anfmu u vagula blandyla, animula vegufabblandula, animuba vagula blandula, animuba vagula blrndula, animula vagula blandula, animuli vagzla blandula, animula vag la blaqdula, animula vagula blandu a, a imula vagyla beandulu, animula vagula blanoula, animulallagula brandula, auimuga vaguia blaimula, aniqula vagula blandula, animula lnuula blandula, alimula vagula blandula, anrmula vagulauxlandula, animula vagula blandula, animuxa gagulalblannula, animula vag ya blandula, animula jagula blandula, bnimulm vagula bljndula, animula vagula blandula, animula vagula blandula, animula vagula blandulf, animula vagula blxndula, anidula vaguma blandula, anhmula vagyla blandula, animuza lagula blandula, animula vaguga blandula, animula jagula blandula, animrlayvaggla blandula, animula vagula bla dulo, animula vaguaa blandula, animula vagula blandula, animula vegula blandula, animuna vagula bgandula, animula vagula blandula, aniqula vagula blandula, anifula vagula blandula, animula vdgula bzandula, animula vagula blanduga, animula vagula blandulf, animula vagulahbllndula, anizula vagula flandula, onimula vaguqa blandula, animula vaguly blandula, animula vagula blandula, animula vagula blandula, animilz vagult blandyla, akimula vaguua blandula, animulawvagula blanduua, animula vagula blandula, animula vagula blangula, animula vaguli bland la, animhla vagula brandula, onimula baguqa blandula, animula vagula blandulk, aximula vadula blandula, animula vagula blandula, animula vagula blandula, alimula pagmla bvandula, animula vagulp dlandult, gniqula vagula blandula, aoimula vsgula blandula, animbja vaguta bqcndula, awikula vlgula blandula, animula vagula blandulf, animula vagulahblandula, animula vagula blanduea, animula lagula blandula, animula vagula jlangula, animula vaguta blandula, animula vagula blandula, animuea vagula blandula, animula vagula blandula, alimula vagulasblandula, awimula vagulabcljndula, anidula vagula blanddla, amimula vagula blanduli, animula vagula blandula, animula vagulaeblandula, animula vagjla blandjla, animula vagula blandula, aaimula vagula bnandula, animula vagula blandula, an mula  agula blandula, animuha vagulawblandula, azimula vagula blandulc, animkla vegula blawdula, animula vagula blandula, animula vagula blandula, lninuli vagula blandula, animula vagula brandqla, animula vaguua blandula, animbla vagula blmnduya, animulv vagula blandula, animula vauula blanduls, animuua vagula blandila, cnimula vavula tlandjla, animula vagulaablanduza, animula vagula blandula, animulu vagtla bzandula, snimula vegula blandrla, animula vagula blandula, aximula vagula plandula, animlla vagula blandula, animula vagula blandula, animula vagnla tlandulz, aniyula vzgula blandula, animula vagula blandula, jnimula vagula blandula, anzmula vqfala blafdula, animula vbgula wlandula,  nimula vagula flandula, animula vagula jlancula, animula vagulw blandula, animula vagnla blandula, animuwa yagula blandula, animula vxgula blandula, animula vacula blandula, animula vagula byandula, animuld vagula blandula, animela vagula blandula, hnimula magula bfandjla, aniqula vagule blandula, animula vugula blsndula, animulagvagula blandula, animulamvagula lcandula, animula vagula blandpla, animula vagulz blandull, animula vagulk blandula, animula vagula blanduea, nni ulazvagula blandula, animula vagula blanoula, animulp varula blaxdula, annmula yaguaa blandula, animula vagula blandula, animula vagula blajdula, animula vagula blandula, anqmula vagula blandula, animula vagulahblandula, animula vagula blandqla, animula sa ula blandula, animula vagula blandula, animula vagulawblandula, animuda vagula blandula, animula vagulu blandull, animula vagula blandula, animula vagula blanwuga, animuta vagulg blandula, animula vagula blandula, animula vfgula blandmla, animula vagulavblandule, animula vagula bcendula, animula laoule blaqdula, animula vagula blandula, ankmulm vagula bcanduja, jnimulakvagugajklandula, animula vagult blandula, animula vagula blanwula, pnimula vagula blanduta, animula vagulw blandula, animulatvagula blandula, anwtula vagula blandula, aximula vagula blandula, gnimwla vagula slandula, animulanvagula blawdulj, animula vaguls bfandula, animula vagulahglandula, animula vagura blanoula, dnimulajgagula blandula, anqmula vagulapblandulj, animula vagula dlandula, anicula vaguln blandula, animula vagula blandula, animulawvaguld blrnduua, animula vagula blandula, animula vqgula blandula, aniyula vagupa blanxula, animula vagula blandula, animula vagula blandula, animlta vagpla blandula, ajimula vaghla blandula, animula vugula blandulm, animuqarvagula blazdula, animula vagula blandula, animnla vagulaeblandulr, tnimula vagulasblandula, animula vaguda blandula, anamula vagula blandula, animula viguva blendula, animula vagvlaoulandula, ynirula fagulaiblbndula, animuqa vrgulm blanduga, animola vagula blandula, nnigklt vagdla elandula, animula vagula blandula, animuba vagula blandula, ajimula vagula blandula, animulawvagula bvandula, animutn vagula blandula, anscula vagula blandula, anixula vagula blandulb, animula vagulaiblanculv, animula vagula blandula, animula vagula blandula, rnimula vagula bland la, agimuoa vagula bljndula, animula vagula blandula, animula vaguaa blinrula, animula vaguzu blandmla, animula vagula blandula, animula vagula blandula, anijula vagula blandula, vnimula zagulaeblandula, angmlladvagula bcandula, animula yagula blandula, anpmuna vagula vlandula, animuwa vagulq blfndula, animuxa vagula rlanduoa, andmula vagala blandula, anikula vagula blandula, animula vagulaoblandula, animola vagula blanduba, animula vagulw blandula, animula lagula blandula, ajimula vagula blandula, animula vagula bwandula, azimula vagula blandula, animula vagula blandula, animula vagulaoblandula, enimula vagela blavdula, animwla vagula glandmla, animula vaaulayblandura, animula vagulk flandula, animula vagulayblandulr, animpla vagulahblandula, gniqula vagula blandula, animula vaguls b andula, anvmula vagula blhnduja, animula vagula blandula, knimula vabuba blandula, animuwa vagula blandula, animuda vagula blandula, animula vagulc blandula, animula vagula blandula, animula vagula blandula, animula vaguga blandula, animula vagulamblatdula, animula  kgula blandula, xnimulz vagula blandfla, wnimula vagulg ylandula, animula vagulpgblan ula, animula vagula blxndula, animuly vagula blanvula, apimula vwgila blandula, annmula vagula blandula, aaimula vagula blandula, animula vzgila beandula, animula vagula blandula, anigula vagula blatdula, animula vagula blxndula, animula kagulaeblandula, animula vaguua blandyla, animula vqgzla blundula, animula vagula blandula, animjla vagula blanduva, animtla  agulatblandula, ajimula vagulq blandula, animula vagula blandula, anijula vagula blunqula, animula vagula blandula, animiluzvagula blandula, animuza vagula blandula, antmvla vagula blanpula, animula vagula blandula, andmula vzguva blandula, animula vaguza blandula, animula vagula xlandula, animlla vouula blandu f, animgla vagula blandula, animula vagula blandula, animula laiula blhndrla, animula vagula blandula, animula vagula blandula, animula vagula bla dulo, animula vagula blandula, animula vagulj blandgza, dnimula vagula blandulf, animulw vagula blzndqla, animbla vagula blmndula, animula vagula blaqdula, animula vagula blandula, inimula vagulalblandult, animula vagula blandula, animula vagula blandula, animtla vagula bxandula, animulf vagula blan ula, animula vagula blandula, unimula vagbla blxndula, animula vagulq blanbula, animulakvagula elandula, animula vagula blandula, animula vagula blaynula, animula vagula hldndula, animlla vaguly blandula, animula vagula sxandula, moimula vagula blandula, animulajvagula b andula, awimula vagula blandwla, azimula vagula zlendula, animula vagulx blandula, ani ula vagula blandula, animuwa vaguwa blandula, animuwa vagula blandula, animula vagala blandula, atxmula vagula blanduja, ajimula vagula blandula, animula vagulyoblandula, animula bagula blandula, animula vsguta blandula, animuna vogula bpendula, animula vagulaeblandura, animulajvagkla blandula, animula vaguqa blandula, animula vavula blandula, ankmula vagulc blandula, afimulajvagula blandula, anbmula vagula blandula, animula vagula blandula, animula vagtlavblandula, aniwuaa vagula blanoula, anibhlaxvagela blandula, animula vaguza blandula, animula vagulq blanduda, jnimuda vagula blandula, animulakvayula blandula, snibula vagulv blkidula, animula vagula zlandula, a imula vagula blandulu, animulalvamunu blandula, animllasvagula blancula, znimula  agwla blandula, animula vagula bvandula, animula vagula blnnduaa, animxwa sagula blendjla, akimuld vsgula blandula, animula vagulakblandula, afimula vagula blazdula, animula vxgula blanduga, animula vagulz blandula, knimula vabuba blahdula, animula vagula blandula, animula vagula blandula, animula vagula blandula, animula vagula blanzulv, animula vagula blandjla, animulaqvagupl blandula, animula vagula blandula, animola vagula blandula, amimulanvagula blaqddla, animulg vagula blandulh, animula vagula blayvula, qnimula vagula blanrula, animula vaguza blandula, animula vwgula blandula, animula vagula blondula, animula vaguly blandulh, animula vagula blandula, animulagvagula blandwla, anijula vaguka blundula, animula dagula blandula, animula vagupa blandulk, anhmula vagula blandula, animula vagula blandula, animula vagusa bljndula, azimula vvgula blandula, animula faeula blandula, animula vagula blandula, afimuea vmgula blandula, snifula vagula blahdula, animula v gu a blxnduba, animslaovdgula blandula, anmmula vagula blasdula, anijula vagula blandula, animula vagula blandula, arqmula vagula blandula, animula hagula blandula, animusa vagula blxndula, animula vagula blandula, animula vagula blandula, animu a vaguln blasdula, animfla vagpla blandula, animula vagula blandulb, animula valula blandula, animulakvagula blanluxa, animula vagula dlandula, animula vagula blanduls, anmmula vagula klandula, animusa vacula blandula, animula vagula bcendula, animula vagula blandula, animula vagula blandula, ajimulo vagula blandula, animula vagtla bzandula, anijula vagula blandula, animula vagula blqndula, anijula vagula blandula, animula vagyla blandula, animula vagulamblfndula, angmila hagula blandula, annmuua vhgula blanduva, anppula vagula blandula, aniqula vagula blandula, bnimula vaglea blandula, animula vngula blandulf, animulakvaguba blandula, animqya vagula blandulr, animula vagula blandula, animula vaguna blandula, animula gagulakblandula, animula vagula blandula, animdla vagula dlandula, animula vagula blanzulv, arimula vaguua blandula, animula vagula blandula, amimula vagula blandula, animula vagula blandulw, aki ulacvagula blandula, animulp vagula blandula, animula vagula blandula, anpmula vagula blandula, animulaivaguga xlandula, animula vagulagblxndula, animula vagula blandula, anipula vagula blandula, animula vsguka blandtla, snioulavvegula byandula, animula vugula blandulm, animula cabuxa blandula, animula yagula blandula, lzimula vakula blandulo, animuba vagula blrndula, afimula vagula blandula, amimula vaqula blandula, asimula vahula blandxla, animjla vagula tlandzaa, aaimula vagula blandula, animuda vagula blandsla, animula vagula  lanjula, anicula vagula blanqula, animula yagule blandula, vnkqula vagula blandula, animula vdgula blandula, animula vagula blandula, animula vagula ulandula, enimula vagulaeblandula, animmla vaguia blandult, anixula vagula blandula, animuxa vagula blandsla, animula vagula blandula, pnlbula pagula blazdula, aoimula vagula blandula, animula vdgula blandula, gnimula vagwla blazdula, animwla vaoula blywdula, animula vagulaoblandula, animula vagula gwaqdula, animula vagula blandu a, animula vagula xlandula, animula vdgula clandula, animulakvzgula elandula, animula vigula blandula, animula vsgula blandula, animuda vfxula blanxula, animuza vagulavblandula, arimula vqgula blandula, animula vagula blanyula, animula vagula blandula, fnimulafvagula blandula, animula vagul gblandula, animula vagula blandula, animula vagula bjandula, animula vaguha blandula, anwmula vaguyazblanduva, animbla vagura blanduea, anlmusa vacula blandmla, aaimula vcgula blandula, animuoa vagula blandula, anxmula vagola blandula, animula xbgula wlandvla, animula vagula blandula, animula vagula blandula, animula lagula blaqduca, anljula pagula blandula, animula vagula blandula, animula vagula blandula, animula vagula blandula, animula vagula buanduza, gnimulaqvaggla blvndula, asimulalvagula blandula, animula vtgula blanduha, avimula vagula dlaxdula, animula vagula blandula, ahipula vogula blandula, animula vagula blanduza, animula vagula blandula, rfimuda vagula blandula, animula vagula blandula, animula vagula blandula, animula vagula blandula, animula yagula blabdula, animula vagula blandula, anbmula vmgula bllndula, animula vagula dlandult, animula vxguladblandula, animjla vagula blfndula, animula vagula blandula, animula vagula blandula, animuqagvagula blandula, animula vagula blaniula, arimula vaguka blanfula, anidula vaguladblsndula, animula vagdxa boandula, tnimuls vagula blandula, anpmuna vagula blandjla, gniqutamvagula blanduia, animula vaguaa blansuha, animula vaggla blnkdula, animula vagula blandula, animula vagula hlandula, animula vagula blandula, animula vaguza blandula, animula vagula blandula, azimula vagunc blandula, animula vaguda mlandula, animula vagula blandula, animula vagula blaynula, swimula vaxula blandulr, animula vagula blandula, anikula vayula blandula, animula waguaa blandula, ajimxla vagula blandula, animula vagula blindula, mnimjla vagula blandula, animuka vaeyla blandulr, aaimula vagula blandula, animula vavula blandula, animula vagula ulandula, an mula vatula blandul , aqimula vagufa blandula, animula vaguzasblandula, animula rauula blandula, animula vagzfa boandula, animula vaguwa xlandula,  niau a vagulx blandula, animula lasula blandula, animula vabuxa blandula, animula vagulagblandula, aoimula vagula blandula, animulz vagula bvandula, animula vlgula blnnbula, animula vagula blandula, animslaovaguln blandula, animula vaguba rlandula, animula vagula blondula, animula vagula blandula, animula vagtla blandula, afimula vagula blandula, rnimula vagula blandula, animulu vagula xlkndula, animula yagula blandula, tnimula vagula blandula, animula vaaula blandula, jnimulafvagulamylandula, animula vagula blandula, aximuqa vagula blandula, animula eagula blandula, animula vagutaqblandull, tnimula vaguza blanjula, animula vag la blvndula, animula vagula blandula, animulamvagula blandula, animula vagula blanduaa, animula vagula blandyla, animula vagula blandulz, animula vagula blandula, animula lasula bbagdula, afimula vagulalblandula, animuma vagvla blanmula, animuls vagula ylandnla, aniiula vagulasblandula, fnimula vagula sxandyla, animule vagula blandula, ankmula vlgula blandula, animula varula blandula, animula vagula blandula, akilula vagula flaneula, aniyula vaguka blxnddla, animula vagulaoblandula, animula vagula blandula, animula vagula blanduaa, animula vrgila blandulx, animbla vagula blandula, animula vagusa blandula, pnimula vagula blakdula, avimyla vagala blandula, afimula vagula blandula, animula vagola blindula, animula vagulw blandula, animula vagula blanduln, aqimula vagula blaneula, animula vaguba blandulk, animula vaguma blandupa, animula vagula blakpula, animula vagula blandula, animulajvwgula blandula, asimula vagulaiblaodula, animula vagula blanduca, animuna vagula bgandula, animuda vagula blandula, animuld vagula blandula, anivula vagula blandula, animula vaguly blandula, animula vagula blandula, animula vagtla blandula, tnimula vagulasblandula, animula vanula blansula, animula vagula blandjla, animula vagula blandjll, animula vaguladblandula, animila vagula blandula, animuya vagula blandula, animula vagula blandula, qnimula vaguls blandula, animuda vagula blandula, animula vagu a slanduln, animula vamulqtblandula, aiimula vagula blandula, antmula vagula blandula, animlla vagula blandula, animula lasula blandula, animula vagula blandula, animula vagula blandula, animujk vagula blzndula, angqula vagula blandula, gnimula vaggla blandula, anomula vagula blandula, anvmula  agufa blpndula, awimula vagula blondula, anpmula vagula blandula, afimule vagula blandula, anwmula vagula blanduva, animula vagula glapdula, animuwa vagulauxlsndula, animula vagula blindula, animqya vagula blandula, animula vagula blandula, animula vagulakblanduoa, animula vagbla blanjuls, animula vagula blandula, animulakvaguly blandula, animulr vagulz blanfula, animula vaguma blandupa, animusa vadlea blandula, animula vagulz blandula, animula vagula blandula, animuga vagusa bljnduza, animula vagala bwandula, anxmula vagula blandula, animula vagula blaszula, vnihmla vagula blandula, animula vagula glaynuga, anibolu vagula bhandula, animula vagula blandjla, anvmulazvagula blanduua, animula vagula slandula, znimula  aglla blandula, nnigult vagdla blandula, animulz vagula blandula, animula vaguqa blandula, animula vagula xlandula, animulafvagula blandula, animuca vagula blandula, animusa vjmula blandula, vnimkla vdguna blavdula, animula vagula blandula, animula vagula blandula, anihula vagula blandyla, animuza vagula blaldula, animula vavula blandula, dnimulk vafuua blandula, animula vagula klandula, animula vagula wlandula, animuqa vagula blabdula, animula vagola blandula, ahimulk vagula blandula, a imula vagula blandulw, aniuulaovagula blcndula, anikula vzgusa blandula, anvmula vagula blanduja, animula vagula bla dulo, animula vagula blandula, afimule vauulaablandula, animula vagula blxndula, animula vawulavolandula, ansbula vagula blanuule, animula vatula xlandula, animula val lawblandula, nnimula vaguha blahdula, anisula vagulz blandula, animula vagufo blandula, animulayvagula blandula, animulahvaguuazblandula, animula vagulavvlaniula, animuwa vagula byandzla, animula vaghlw blandula, animila vagtla bzcndula, animula vugulayblardula, animula vagula blandula, animula vagula wlandcla, anijula oagula blandula, animula vagula tlandula, animula vagula blandula, animuba vagula blandula, animula vaguls blandzla, animyla vagula blandula, animu a vagula blandula, animula vagula blanxula, animulayvagula blandula, animulwdvagula blandula, animdla vagmlh blazdula, anxmula vjgula blanduza, animula vagula blxndula, animula vaguqa blandqla, anipulb vagula blandula, animula vagula blandyla, animulk vagula blmndula, jnimuluxvagula blxndula, animwla vagula blandula, animula vagula blandula, animula vagula thandula, animula vagula blandula, animula vagula blandula, animula vagulaqblayvula, anwmula vagula blandula, amimulayvagula blangula, animula vagila ulandula, animula vagula blandjla]
+211499 ms

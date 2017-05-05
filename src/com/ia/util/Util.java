@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +25,62 @@ import com.ia.model.Parametros;
  * random, cargar la configuración, leer o escribir ficheros de texto, etc...
  */
 public class Util {
+	
+	
+	public static Double porcentajeAcierto(String target, List<String> poblacion){
+		
+		Double porcentajeAcierto = 0.0;
+		Integer numTotalCaracteresEnPoblacion = poblacion.size()*target.length();
+		
+		for(int i=0; i<poblacion.size(); i++){
+			for(int j=0; j<target.length(); j++){
+				if(poblacion.get(i).charAt(j) == target.charAt(j))
+					porcentajeAcierto += (new Double(1)/numTotalCaracteresEnPoblacion)*100;
+			}
+		}
+		
+		return porcentajeAcierto;
+	}
+	
+	/**
+	 * Devuelve el porcentaje de frases iguales al target en la población actual.
+	 * 
+	 * @param largoTarget: el largo de la frase target.
+	 * @param numCoincidencias: una lista con el numero de coincidencias de cada cromosoma
+	 * 		  de la población. Esta lista tiene que cargarse antes de pasarla a este método.
+	 * 
+	 * @return el porcentaje de frases iguales al target en la población.
+	 */
+	public static Double porcentajeNTar(Integer largoTarget, List<Integer> numCoincidencias){
+		
+		Double porcentaje = 0.0;
+		
+		for(int i=0; i<numCoincidencias.size(); i++){
+			if(numCoincidencias.get(i) == largoTarget)
+				porcentaje += (new Double(1)/numCoincidencias.size())*100;
+		}
+		return porcentaje;
+	}
+	
+	/**
+	 * Devuelve el número de cromosomas iguales a la frase target en la población.
+	 * 
+	 * @param largoTarget: el largo de la frase target.
+	 * @param numCoincidencias: una lista con el numero de coincidencias de cada cromosoma
+	 * 		  de la población. Esta lista tiene que cargarse antes de pasarla a este método.
+	 * 
+	 * @return el número de cromosomas iguales a la frase target en la población.
+	 */
+	public static Integer numeroNTar(Integer largoTarget, List<Integer> numCoincidencias){
+		
+		Integer numero = 0;
+		
+		for(int i=0; i<numCoincidencias.size(); i++){
+			if(numCoincidencias.get(i) == largoTarget)
+				numero++;
+		}
+		return numero;
+	}
 	
 	/**
 	 * Un generador de randoms para usar desde varios métodos.
@@ -240,5 +297,14 @@ public class Util {
 				return true;
 		}
 		return false;
+	}
+	
+	public static void imprimirResumen(Integer generacion, String target, List<Integer> numCoincidencias, 
+			List<String> poblacion){
+		DecimalFormat dFormat = new DecimalFormat("0.00");
+		System.out.println("Generacion: " + generacion);
+		System.out.println("Porcentaje de NTar: " + dFormat.format(Util.porcentajeNTar(target.length(), numCoincidencias)) + "%");
+		System.out.println("Número de NTar: " + Util.numeroNTar(target.length(), numCoincidencias));
+		System.out.println("Porcentaje de acierto: " + dFormat.format(Util.porcentajeAcierto(target, poblacion)) + "%\n\n");
 	}
 }
