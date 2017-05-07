@@ -1,6 +1,5 @@
 package com.ia.main;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,18 +12,26 @@ public class Programa {
 	/**
 	 * Definición de variables. 
 	 */
-	private static Parametros parametros;
-	private static List<String> poblacion;
-	private static List<Integer> numCoincidencias;
-	private static List<Double> listaFitness;
-	private static String target;
+	private Parametros parametros;
+	private String rutaResumen;
+	private List<String> poblacion;
+	private List<Integer> numCoincidencias;
+	private List<Double> listaFitness;
+	private String target;
 	/**
 	 * FIN definición de variables. 
 	 */
 	
+	public Programa(String target, Parametros parametros, String rutaResumen){
+		
+		this.parametros = Util.obtenerParametros(null);
+		this.target = target;
+		this.rutaResumen = rutaResumen;
+		ejecutarPrograma();
+	}
 	
 	// Para ir probando el programa
-	public static void main(String[] args) {
+	public void ejecutarPrograma() {
 
 		/*
 		 * Inicializar variables.
@@ -32,9 +39,7 @@ public class Programa {
 		poblacion = new ArrayList<String>();
 		numCoincidencias = new ArrayList<Integer>();
 		listaFitness = new ArrayList<Double>();
-		parametros = Util.obtenerParametros(null);
-		target = Util.leeTarget();
-		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target);
+		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target, rutaResumen);
 		
 		/*
 		 *  Para contar el tiempo que tarda en correr el algoritmo
@@ -51,7 +56,8 @@ public class Programa {
 		 */
 		long elapsedTime = System.currentTimeMillis() - start;
 
-		System.out.println(poblacion);
+		Util.imprimirEnArchivo(rutaResumen, "Tiempo transcurrido: " + new Double(new Double(elapsedTime)/new Double(1000))+ "s\n\n");
+		Util.imprimirEnArchivo(rutaResumen, "(*)Poblacion final: \n" + poblacion.toString());
 		System.out.println(elapsedTime);
 	}
 	
@@ -68,7 +74,7 @@ public class Programa {
 	 * @param listaFitness: una lista con el fitness de cada individuo de la población.
 	 *  
 	 */
-	public static void algoritmoGenetico(){
+	public void algoritmoGenetico(){
 		
 		numCoincidencias = Util.calculaCoincidencias(poblacion, target);
 		listaFitness = UtilAlgoritmos.calculaFitness(poblacion, target, numCoincidencias, parametros);
@@ -78,11 +84,11 @@ public class Programa {
 	/**
 	 * Éste método utiliza el ngen del configuracion.cfg. 
 	 */
-	private static void _programaConGeneraciones(){
+	private void _programaConGeneraciones(){
 		for(int i=0; i<parametros.getNumMaxGeneraciones(); i++){
 			algoritmoGenetico();
 			if(i%parametros.getNumGenResumen()==0)
-				Util.imprimirResumen(i, target, numCoincidencias, poblacion);
+				Util.imprimirResumen(i, target, numCoincidencias, poblacion, rutaResumen);
 		}
 	}
 	
@@ -93,7 +99,7 @@ public class Programa {
 	 * igual que target.
 	 *  
 	 */
-	public static void _programaSinGeneraciones() {
+	public void _programaSinGeneraciones() {
 		int i = 0;
 		while(!Util.hasEqual(numCoincidencias, target)){
 			i++;

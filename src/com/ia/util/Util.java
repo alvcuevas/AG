@@ -6,13 +6,18 @@ import static com.ia.util.Constantes.NUM_INDIVIDUOS;
 import static com.ia.util.Constantes.PROB_MUTACION;
 import static com.ia.util.Constantes.RUTA_ARCHIVO_CONFIGURACION;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -100,7 +105,7 @@ public class Util {
         if(scanner.hasNextLine())
         	target = scanner.nextLine().toString();
         
-//        System.out.println("(*)Sentencia target: " + target.toString() + " (longitud " + target.length() + ")");
+        System.out.println("(*)Sentencia target: " + target.toString() + " (longitud " + target.length() + ")");
 
         scanner.close();	
         
@@ -179,7 +184,7 @@ public class Util {
 	 * @return una lista de frases con "numIndividuos" elementos del mismo largo que la frase target.
 	 *  
 	 */
-	public static List<String> generaPoblacion(int numIndividuos, String target){
+	public static List<String> generaPoblacion(int numIndividuos, String target, String rutaResumen){
 		
 		List<String> poblacion = new ArrayList<String>();
 		
@@ -193,8 +198,9 @@ public class Util {
 			}
 		}
 		
-//		System.out.printf("(*)Poblacion aleatoria inicial: \n");
-//		System.out.println(poblacion);
+		imprimirEnArchivo(rutaResumen, "(*)Poblacion aleatoria inicial: \n" + poblacion + "\n\n");
+		System.out.printf("(*)Poblacion aleatoria inicial: \n");
+		System.out.println(poblacion);
 		return poblacion;
 	}
 	
@@ -266,7 +272,6 @@ public class Util {
 				numeroMaximo = numCoincidencias.get(i);
 		}
 		
-//		System.out.println("(*)Num coincidencias/individuo: " + numCoincidencias);
 		return numCoincidencias;
 		
 	}
@@ -298,13 +303,33 @@ public class Util {
 		}
 		return false;
 	}
-	
+
 	public static void imprimirResumen(Integer generacion, String target, List<Integer> numCoincidencias, 
-			List<String> poblacion){
+			List<String> poblacion, String rutaResumen){
+
 		DecimalFormat dFormat = new DecimalFormat("0.00");
-		System.out.println("Generacion: " + generacion);
-		System.out.println("Porcentaje de NTar: " + dFormat.format(Util.porcentajeNTar(target.length(), numCoincidencias)) + "%");
-		System.out.println("Número de NTar: " + Util.numeroNTar(target.length(), numCoincidencias));
-		System.out.println("Porcentaje de acierto: " + dFormat.format(Util.porcentajeAcierto(target, poblacion)) + "%\n\n");
+
+		String resumen = "Generacion: " + generacion +"\n";
+		resumen += "Porcentaje de NTar: " + dFormat.format(Util.porcentajeNTar(target.length(), numCoincidencias)) + "%" +"\n";
+		resumen += "Número de NTar: " + Util.numeroNTar(target.length(), numCoincidencias) +"\n";
+		resumen += "Porcentaje de acierto: " + dFormat.format(Util.porcentajeAcierto(target, poblacion)) + "%\n\n";
+		imprimirEnArchivo(rutaResumen, resumen);
+	}
+	
+	public static void imprimirEnArchivo(String archivo, String contenido){
+		BufferedWriter writer = null;
+        try {
+            //
+            writer = new BufferedWriter(new FileWriter(archivo, true));
+            writer.write(contenido);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // Close the writer regardless of what happens...
+                writer.close();
+            } catch (Exception e) {
+            }
+        }
 	}
 }
