@@ -25,6 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -225,6 +226,9 @@ public class AG {
         lineaQ.add(inputQ);
         lineaQ.add(btnQ);
 
+        JCheckBox chinButton = new JCheckBox("Chin");
+        chinButton.setSelected(false);
+        linea3.add(chinButton);
         linea3.add(btnConfiguracion);
         linea3.add(btnVerRuta);
         linea3.add(btnVerResumen);
