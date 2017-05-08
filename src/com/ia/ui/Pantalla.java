@@ -20,8 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileSystemView;
 
-import com.ia.main.Programa;
 import com.ia.model.Parametros;
+import com.ia.programa.Programa2;
 import com.ia.util.Util;
 
 public class Pantalla {
@@ -33,7 +33,7 @@ public class Pantalla {
 	private static Parametros parametros;
 	private static Boolean cfgPersonalizada = false;
 	
-	public static void main(String[] args) {
+	public static void asd(String[] args) {
 		
 		parametros = Util.obtenerParametros(null);
 
@@ -298,7 +298,7 @@ public class Pantalla {
         			archivoResumenStr += (File.separator.toString() + nombreArchivoResumenGenerico);
         		
         		btnGenerar.setText("Generando...");
-        		new Programa(inputFrase.getText().toLowerCase(), parametros, archivoResumenStr);
+        		new Programa2(inputFrase.getText().toLowerCase(), parametros, archivoResumenStr);
         		btnGenerar.setText("Generar!");
         	}
         });

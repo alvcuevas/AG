@@ -1,0 +1,28 @@
+con q=0.9 y npob=200 : 35448 milis
+con q=0.8 y npob=200 : no acaba (que pasa)
+
+
+
+
+
+
+PARAMETROS:
+npob=200
+ngen=15
+nres=5
+q=0.9
+
+209798 milis
+
+PARAMETROS:
+npob=200
+ngen=15
+nres=5
+q=0.9
+
+90507 milis
+
+
+
+
+

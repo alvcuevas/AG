@@ -1,4 +1,4 @@
-package com.ia.main;
+package com.ia.programa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import com.ia.model.Parametros;
 import com.ia.util.Util;
 import com.ia.util.UtilAlgoritmos;
 
-public class Programa {
+public class Programa2 {
 	
 	/**
 	 * Definición de variables. 
@@ -22,7 +22,7 @@ public class Programa {
 	 * FIN definición de variables. 
 	 */
 	
-	public Programa(String target, Parametros parametros, String rutaResumen){
+	public Programa2(String target, Parametros parametros, String rutaResumen){
 		
 		this.parametros = Util.obtenerParametros(null);
 		this.target = target;
