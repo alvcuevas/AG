@@ -7,6 +7,11 @@ import com.ia.model.Parametros;
 import com.ia.util.Util;
 import com.ia.util.UtilAlgoritmos;
 
+/**
+ * ESTA CLASE NO ESTÁ ACTUALIZADA.
+ * @author pab
+ *
+ */
 public class Programa2 {
 	
 	/**
@@ -39,7 +44,7 @@ public class Programa2 {
 		poblacion = new ArrayList<String>();
 		numCoincidencias = new ArrayList<Integer>();
 		listaFitness = new ArrayList<Double>();
-		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target, rutaResumen);
+//		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target, rutaResumen);
 		
 		/*
 		 *  Para contar el tiempo que tarda en correr el algoritmo
@@ -56,8 +61,8 @@ public class Programa2 {
 		 */
 		long elapsedTime = System.currentTimeMillis() - start;
 
-		Util.imprimirEnArchivo(rutaResumen, "Tiempo transcurrido: " + new Double(new Double(elapsedTime)/new Double(1000))+ "s\n\n");
-		Util.imprimirEnArchivo(rutaResumen, "(*)Poblacion final: \n" + poblacion.toString());
+//		Util.imprimirEnArchivo(rutaResumen, "Tiempo transcurrido: " + new Double(new Double(elapsedTime)/new Double(1000))+ "s\n\n");
+//		Util.imprimirEnArchivo(rutaResumen, "(*)Poblacion final: \n" + poblacion.toString());
 		System.out.println(elapsedTime);
 	}
 	
@@ -87,8 +92,8 @@ public class Programa2 {
 	private void _programaConGeneraciones(){
 		for(int i=0; i<parametros.getNumMaxGeneraciones(); i++){
 			algoritmoGenetico();
-			if(i%parametros.getNumGenResumen()==0)
-				Util.imprimirResumen(i, target, numCoincidencias, poblacion, rutaResumen);
+			if(i%parametros.getNumGenResumen()==0){}
+//				Util.imprimirResumen(i, target, numCoincidencias, poblacion, rutaResumen);
 		}
 	}
 	
@@ -101,10 +106,10 @@ public class Programa2 {
 	 */
 	public void _programaSinGeneraciones() {
 		int i = 0;
-		while(!Util.hasEqual(numCoincidencias, target)){
-			i++;
-			algoritmoGenetico();
-		}
+//		while(!Util.hasEqual(numCoincidencias, target)){
+//			i++;
+//			algoritmoGenetico();
+//		}
 		System.out.println("Generaciones para generar: " + i);
 	}
 }

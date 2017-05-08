@@ -51,7 +51,9 @@ public class AG {
 	static Parametros parametros;
 	static Boolean cfgPersonalizada;
 	static Boolean generado;
+	static Boolean pararThread;
 	static Thread hiloResumen;
+	static long threadId;
 	
 	public static void main(String[] args) {
 		
@@ -61,6 +63,7 @@ public class AG {
 		cfgPersonalizada = false;
 		rutaResumen = Constantes.RUTA_PROYECTO;
 		generado = false;
+		pararThread = false;
 
 		/**
 		 * Inputs.
@@ -154,7 +157,7 @@ public class AG {
 		lineaResumen.setVisible(false);
 		lineaRutaResumen.setVisible(false);
 		
-		JTextArea resumenArea = new JTextArea(8, 40);
+		JTextArea resumenArea = new JTextArea(7, 40);
 		resumenArea.setEditable(false);
 		resumenArea.setFocusable(false);
 		JScrollPane resumenScroll = new JScrollPane(resumenArea);
@@ -399,8 +402,14 @@ public class AG {
         		
         		if(resumenPanel.isVisible()){
         			resumenPanel.setVisible(false);
-        			if(hiloResumen!=null&&hiloResumen.isAlive())
-        				hiloResumen.interrupt();
+        			
+//        			for (Thread t : Thread.getAllStackTraces().keySet()) 
+//        				if (t.getId()==threadId)
+//        					if(t.isAlive())
+//                				t.interrupt();
+        			
+        			pararThread = true;
+        			
         			gui.setLayout(new BoxLayout(gui, BoxLayout.Y_AXIS));
     		        gui.revalidate();
     		        gui.validate();
@@ -408,13 +417,15 @@ public class AG {
     		        pantalla.pack();
         			
         		} else {
+        			pararThread = false;
 	        		hiloResumen = new Thread() {
 			            public void run() {
 			            	double ultimoMax = 0;
+			            	threadId = Thread.currentThread().getId();
 			            	
 			            	do{
 			            		ultimoMax = _actualizarResumen(pantalla, gui, resumenArea, resumenScroll, resumenPanel, ultimoMax);
-			            	}while(!generado);
+			            	}while(!generado && !pararThread);
 			            }
 	
 	        		};
@@ -487,9 +498,11 @@ class Programa {
 		listaFitness = new ArrayList<Double>();
 		
 		
+		Util.imprimirEnArchivo(rutaResumen, "Target: " + target + System.getProperty("line.separator"));
 		Util.imprimirEnArchivo(rutaResumen, "Configuración:" + System.getProperty("line.separator") 
 			+ parametros.toString() + System.getProperty("line.separator") + System.getProperty("line.separator"));
 		poblacion = Util.generaPoblacion(parametros.getNumIndividuos(), target, rutaResumen);
+		
 		
 		/*
 		 *  Para contar el tiempo que tarda en correr el algoritmo
@@ -537,8 +550,9 @@ class Programa {
 	private void _programaConGeneraciones(){
 		for(int i=0; i<parametros.getNumMaxGeneraciones(); i++){
 			algoritmoGenetico();
-			if(i%parametros.getNumGenResumen()==0){
-				Util.imprimirResumen(i, target, numCoincidencias, poblacion, rutaResumen);
+			if(i%parametros.getNumGenResumen()==0
+					||i==parametros.getNumMaxGeneraciones()-1){
+				Util.imprimirResumenParaGrafica(i + (i==0||i==parametros.getNumMaxGeneraciones()-1?1:0), target, numCoincidencias, poblacion, rutaResumen);
 				if(imprimirPoblacion)
 					Util.imprimirEnArchivo(rutaResumen, "Población:" + System.getProperty("line.separator") + 
 							poblacion.toString() +System.getProperty("line.separator")+System.getProperty("line.separator"));
@@ -868,6 +882,18 @@ class Util {
 		resumen += "Porcentaje de NTar: " + dFormat.format(Util.porcentajeNTar(target.length(), numCoincidencias)) + "%" +System.getProperty("line.separator");
 		resumen += "Número de NTar: " + Util.numeroNTar(target.length(), numCoincidencias) +System.getProperty("line.separator");
 		resumen += "Porcentaje de acierto: " + dFormat.format(Util.porcentajeAcierto(target, poblacion)) + "%"+System.getProperty("line.separator")+System.getProperty("line.separator");
+		imprimirEnArchivo(rutaResumen, resumen);
+	}
+	
+	public static void imprimirResumenParaGrafica(Integer generacion, String target, List<Integer> numCoincidencias, 
+			List<String> poblacion, String rutaResumen){
+		
+		DecimalFormat dFormat = new DecimalFormat("0.00");
+		
+		String resumen = generacion + " ";
+		resumen += dFormat.format(Util.porcentajeNTar(target.length(), numCoincidencias)) +  " ";
+		resumen += Util.numeroNTar(target.length(), numCoincidencias) +  " ";
+		resumen += dFormat.format(Util.porcentajeAcierto(target, poblacion)) +System.getProperty("line.separator");
 		imprimirEnArchivo(rutaResumen, resumen);
 	}
 	

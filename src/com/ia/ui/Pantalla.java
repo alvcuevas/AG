@@ -1,6 +1,5 @@
 package com.ia.ui;
 
-import static com.ia.util.Constantes.FRASE_DEFECTO;
 import static com.ia.util.Constantes.RUTA_PROYECTO;
 
 import java.awt.Dimension;
@@ -24,6 +23,11 @@ import com.ia.model.Parametros;
 import com.ia.programa.Programa2;
 import com.ia.util.Util;
 
+/**
+ * ESTA CLASE NO ESTÁ ACTUALIZADA.
+ * @author pab
+ *
+ */
 public class Pantalla {
 	
 	private static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyyHHmmss");
@@ -53,7 +57,7 @@ public class Pantalla {
 		JTextField inputArchivoResumen = new JTextField();
 		inputArchivoResumen.setPreferredSize(new Dimension(300, 20)); 
 
-		inputFrase.setText(FRASE_DEFECTO.toUpperCase());
+//		inputFrase.setText(FRASE_DEFECTO.toUpperCase());
 		inputNPob.setText(parametros.getNumIndividuos().toString());
 		inputNGen.setText(parametros.getNumMaxGeneraciones().toString());
 		inputNRes.setText(parametros.getNumGenResumen().toString());
@@ -282,10 +286,10 @@ public class Pantalla {
         		String archivoResumenStr = "";
         		
         		if(cfgPersonalizada)
-        			parametros = new Parametros(Integer.valueOf(inputNPob.getText()), 
-        										Integer.valueOf(inputNGen.getText()), 
-        										Integer.valueOf(inputNRes.getText()), 
-        										Double.valueOf(inputQ.getText()));
+//        			parametros = new Parametros(Integer.valueOf(inputNPob.getText()), 
+//        										Integer.valueOf(inputNGen.getText()), 
+//        										Integer.valueOf(inputNRes.getText()), 
+//        										Double.valueOf(inputQ.getText()));
         		
         		if(rutaResumen!=null && !rutaResumen.isEmpty()) 
         			archivoResumenStr += rutaResumen;
