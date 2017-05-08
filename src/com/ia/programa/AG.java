@@ -154,20 +154,20 @@ public class AG {
 		lineaResumen.setVisible(false);
 		lineaRutaResumen.setVisible(false);
 		
-		JTextArea chatArea = new JTextArea(8, 40);
-		chatArea.setEditable(false);
-		chatArea.setFocusable(false);
-		JScrollPane chatScroll = new JScrollPane(chatArea);
-		JPanel chatPanel = new JPanel(new BorderLayout());
-		chatPanel.add(new JLabel("Chat:", SwingConstants.LEFT), BorderLayout.PAGE_START);
-		chatPanel.add(chatScroll);
-		chatPanel.setVisible(false);
+		JTextArea resumenArea = new JTextArea(8, 40);
+		resumenArea.setEditable(false);
+		resumenArea.setFocusable(false);
+		JScrollPane resumenScroll = new JScrollPane(resumenArea);
+		JPanel resumenPanel = new JPanel(new BorderLayout());
+		resumenPanel.add(new JLabel("Resumen:", SwingConstants.LEFT), BorderLayout.PAGE_START);
+		resumenPanel.add(resumenScroll);
+		resumenPanel.setVisible(false);
 		
         gui.add(linea1);
         gui.add(linea2);
         gui.add(lineaRutaResumen);
         gui.add(linea3);
-        gui.add(chatPanel);
+        gui.add(resumenPanel);
         
         gui.add(lineaNGen);
         gui.add(lineaNPob);
@@ -226,9 +226,10 @@ public class AG {
         lineaQ.add(inputQ);
         lineaQ.add(btnQ);
 
-        JCheckBox chinButton = new JCheckBox("Chin");
-        chinButton.setSelected(false);
-        linea3.add(chinButton);
+        JCheckBox pobButton = new JCheckBox("Imprimir población");
+        pobButton.setToolTipText("Imprimir o no la población en cada generación");
+        pobButton.setSelected(false);
+        linea3.add(pobButton);
         linea3.add(btnConfiguracion);
         linea3.add(btnVerRuta);
         linea3.add(btnVerResumen);
@@ -373,8 +374,8 @@ public class AG {
 		        Thread hilo = new Thread() {
 		            public void run() {
 		            	generado = false;
-		            	new Programa(inputFrase.getText().toLowerCase(), parametros, archivoResumenStrFinal);
-		            	_actualizarResumen(pantalla, gui, chatArea, chatScroll, chatPanel, 0);
+		            	new Programa(inputFrase.getText().toLowerCase(), parametros, archivoResumenStrFinal, pobButton.isSelected());
+		            	_actualizarResumen(pantalla, gui, resumenArea, resumenScroll, resumenPanel, 0);
 		            	generado = true;
 		            }  
 		        };
@@ -396,8 +397,8 @@ public class AG {
         	public void actionPerformed(ActionEvent e)
         	{
         		
-        		if(chatPanel.isVisible()){
-        			chatPanel.setVisible(false);
+        		if(resumenPanel.isVisible()){
+        			resumenPanel.setVisible(false);
         			if(hiloResumen!=null&&hiloResumen.isAlive())
         				hiloResumen.interrupt();
         			gui.setLayout(new BoxLayout(gui, BoxLayout.Y_AXIS));
@@ -412,7 +413,7 @@ public class AG {
 			            	double ultimoMax = 0;
 			            	
 			            	do{
-			            		ultimoMax = _actualizarResumen(pantalla, gui, chatArea, chatScroll, chatPanel, ultimoMax);
+			            		ultimoMax = _actualizarResumen(pantalla, gui, resumenArea, resumenScroll, resumenPanel, ultimoMax);
 			            	}while(!generado);
 			            }
 	
@@ -426,13 +427,13 @@ public class AG {
 		
 	}
 
-	private static double _actualizarResumen(JFrame pantalla, JPanel gui, JTextArea chatArea,
-			JScrollPane chatScroll, JPanel chatPanel, double ultimoMax) {
+	private static double _actualizarResumen(JFrame pantalla, JPanel gui, JTextArea resumenArea,
+			JScrollPane resumenScroll, JPanel resumenPanel, double ultimoMax) {
 		
-		if((ultimoMax) == (double)chatScroll.getVerticalScrollBar().getMaximum())
-			chatScroll.getVerticalScrollBar().setValue(chatScroll.getVerticalScrollBar().getMaximum());
-		chatArea.setText(Util.leerArchivo(ultimaRutaResumen));
-		chatPanel.setVisible(true);
+		if((ultimoMax) == (double)resumenScroll.getVerticalScrollBar().getMaximum())
+			resumenScroll.getVerticalScrollBar().setValue(resumenScroll.getVerticalScrollBar().getMaximum());
+		resumenArea.setText(Util.leerArchivo(ultimaRutaResumen));
+		resumenPanel.setVisible(true);
 		
 		gui.setLayout(new BoxLayout(gui, BoxLayout.Y_AXIS));
 		gui.revalidate();
@@ -448,7 +449,7 @@ public class AG {
 					e.getStackTrace();
 			System.out.println(message);
 		}
-		ultimoMax = (double)chatScroll.getVerticalScrollBar().getMaximum();
+		ultimoMax = (double)resumenScroll.getVerticalScrollBar().getMaximum();
 		return ultimoMax;
 	}
 }
@@ -464,12 +465,14 @@ class Programa {
 	private List<Integer> numCoincidencias;
 	private List<Double> listaFitness;
 	private String target;
+	private Boolean imprimirPoblacion;
 	
-	public Programa(String target, Parametros parametros, String rutaResumen){
+	public Programa(String target, Parametros parametros, String rutaResumen, Boolean imprimirPoblacion){
 		
 		this.target = target;
 		this.parametros = parametros;
 		this.rutaResumen = rutaResumen;
+		this.imprimirPoblacion = imprimirPoblacion;
 		ejecutarPrograma();
 	}
 	
@@ -536,6 +539,9 @@ class Programa {
 			algoritmoGenetico();
 			if(i%parametros.getNumGenResumen()==0){
 				Util.imprimirResumen(i, target, numCoincidencias, poblacion, rutaResumen);
+				if(imprimirPoblacion)
+					Util.imprimirEnArchivo(rutaResumen, "Población:" + System.getProperty("line.separator") + 
+							poblacion.toString() +System.getProperty("line.separator")+System.getProperty("line.separator"));
 			}
 		}
 	}
