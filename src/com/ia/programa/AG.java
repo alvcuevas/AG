@@ -96,14 +96,14 @@ public class AG {
 		btnGenerar.setPreferredSize(new Dimension(100, 20));
 
 		/** Configuración*/
-		JButton btnConfiguracion = new JButton("Configuración");
+		JButton btnConfiguracion = new JButton("Configuracion");
 		btnConfiguracion.setPreferredSize(new Dimension(100,20));
-		btnConfiguracion.setToolTipText("Personalizar la configuración del programa.");
+		btnConfiguracion.setToolTipText("Personalizar la configuracion del programa.");
 
 		/** Ver Ruta Exportacion*/
 		JButton btnVerRuta = new JButton("Ver Ruta");
 		btnVerRuta.setPreferredSize(new Dimension(100,20));
-		btnVerRuta.setToolTipText("Personalizar la configuración del programa.");
+		btnVerRuta.setToolTipText("Personalizar la configuracion del programa.");
 		
 		JButton btnNPob = new JButton("Defecto");
 		btnNPob.setPreferredSize(new Dimension(100, 20));
@@ -115,11 +115,11 @@ public class AG {
 		btnQ.setPreferredSize(new Dimension(100, 20));
 		
 		/** Resúmen*/
-		JButton btnVerResumen = new JButton("Resúmen");
+		JButton btnVerResumen = new JButton("Resumen");
 		btnVerResumen.setPreferredSize(new Dimension(100,20));
 		btnVerResumen.setEnabled(false);
 		btnVerResumen.setToolTipText("Ver resultados generados en esta ventana." 
-							+ (!btnVerResumen.isEnabled()?" Deshabilitado: Aún no se ha generado nada":""));
+							+ (!btnVerResumen.isEnabled()?" Deshabilitado: Aun no se ha generado nada":""));
 		JButton btnExportar = new JButton("Carpeta");
 		btnExportar.setPreferredSize(new Dimension(100, 20));
 		/**
@@ -129,7 +129,7 @@ public class AG {
 		/**
 		 * Ventana, JPanel y líneas.
 		 */
-		JFrame pantalla = new JFrame("Algoritmo Genético (IAII)");
+		JFrame pantalla = new JFrame("Algoritmo Genetico (IAII)");
 		pantalla.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel gui = new JPanel();
 		pantalla.setContentPane(gui);
@@ -192,7 +192,7 @@ public class AG {
         labelNRes.setPreferredSize(new Dimension(70, 20));
         JLabel labelQ = new JLabel("Q: "); 
         labelQ.setPreferredSize(new Dimension(70, 20));
-        JLabel labelArchivoResumen = new JLabel("Resúmen: "); 
+        JLabel labelArchivoResumen = new JLabel("Resumen: "); 
         labelArchivoResumen.setPreferredSize(new Dimension(70, 20));
         JLabel labelRutaActual = new JLabel(rutaResumen);
         labelRutaActual.setPreferredSize(new Dimension(400, 20));
@@ -226,8 +226,8 @@ public class AG {
         lineaQ.add(inputQ);
         lineaQ.add(btnQ);
 
-        JCheckBox pobButton = new JCheckBox("Imprimir población");
-        pobButton.setToolTipText("Imprimir o no la población en cada generación");
+        JCheckBox pobButton = new JCheckBox("Imprimir poblacion");
+        pobButton.setToolTipText("Imprimir o no la poblacion en cada generacion");
         pobButton.setSelected(false);
         linea3.add(pobButton);
         linea3.add(btnConfiguracion);
@@ -329,7 +329,7 @@ public class AG {
 			{
 				JFileChooser chooser = new JFileChooser(); 
 				chooser.setCurrentDirectory(FileSystemView.getFileSystemView().getHomeDirectory());
-				chooser.setDialogTitle("Exportación resultados");
+				chooser.setDialogTitle("Exportacion resultados");
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				//
 				// disable the "All files" option.

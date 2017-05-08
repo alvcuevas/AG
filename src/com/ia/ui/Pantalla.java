@@ -71,7 +71,7 @@ public class Pantalla {
 		btnGenerar.setPreferredSize(new Dimension(100, 20));
 
 		/** Configuración*/
-		JButton btnConfiguracion = new JButton("Configuración");
+		JButton btnConfiguracion = new JButton("Configuracion");
 		btnConfiguracion.setPreferredSize(new Dimension(100,20));
 		btnConfiguracion.setToolTipText("Personalizar la configuración del programa.");
 		
@@ -85,7 +85,7 @@ public class Pantalla {
 		btnQ.setPreferredSize(new Dimension(100, 20));
 		
 		/** Resúmen*/
-		JButton btnVerResumen = new JButton("Resúmen");
+		JButton btnVerResumen = new JButton("Resumen");
 		btnVerResumen.setPreferredSize(new Dimension(100,20));
 		btnVerResumen.setEnabled(false);
 		btnVerResumen.setToolTipText("Ver resultados generados en esta ventana." 
@@ -99,7 +99,7 @@ public class Pantalla {
 		/**
 		 * Ventana, JPanel y líneas.
 		 */
-		JFrame pantalla = new JFrame("Algoritmo Genético (IAII)");
+		JFrame pantalla = new JFrame("Algoritmo Genetico (IAII)");
 		pantalla.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel gui = new JPanel();
 		pantalla.setContentPane(gui);
@@ -146,7 +146,7 @@ public class Pantalla {
         labelNRes.setPreferredSize(new Dimension(70, 20));
         JLabel labelQ = new JLabel("Q: "); 
         labelQ.setPreferredSize(new Dimension(70, 20));
-        JLabel labelArchivoResumen = new JLabel("Resúmen: "); 
+        JLabel labelArchivoResumen = new JLabel("Resumen: "); 
         labelArchivoResumen.setPreferredSize(new Dimension(70, 20));
         /**
          * Fin Labels.
@@ -179,7 +179,7 @@ public class Pantalla {
         linea3.add(btnConfiguracion);
         linea3.add(btnVerResumen);
         /**
-         * Fin Añadir componentes a cada línea.
+         * Fin A�adir componentes a cada linea.
          */
 		
         /**
@@ -198,7 +198,7 @@ public class Pantalla {
          */
         btnConfiguracion.addActionListener(new ActionListener()
 		{
-        	/** Mostrar/ocultar configuración*/
+        	/** Mostrar/ocultar configuracion*/
 			public void actionPerformed(ActionEvent e)
 			{
 				cfgPersonalizada = !cfgPersonalizada;
